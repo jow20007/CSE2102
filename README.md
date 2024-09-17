@@ -12,5 +12,5 @@ To run Lab2:
 ```
 git clone https://github.com/jow20007/CSE2102.git
 cd CSE2102/Lab2
-mvn test
+mvn test # must have maven installed 
 ```
