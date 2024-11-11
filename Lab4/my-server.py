@@ -15,6 +15,8 @@ def hello():
 def echo():
    return "You said: " + request.form['text']
 
+
+
 accounts = {
    "bob": "bobpw",
    "joe": "joepw",
@@ -22,7 +24,10 @@ accounts = {
    "sue": "suepw",
    "kim": "kimpw",
 }
+
 authorized = {}
+
+
 
 
 @app.route("/login", methods=['POST'])
@@ -30,10 +35,12 @@ def login():
    username = request.form['username']
    password = request.form['password']
 
+
    if username in accounts and accounts[username] == password:
       token = jwt.encode({"user": username}, JWT_SECRET, JWT_ENC_TYPE)
       authorized[username] = token
-      return "Login success! Token:\n" + token
+      print(username + " logged in")
+      return token
    
    return make_response("login failed", 401)
    
@@ -46,10 +53,11 @@ def auth():
       user = payload["user"]
 
       if authorized[user] == token:
-         return "auth success! " + user
+         print(user + ' authorized')
+         return "auth success! "
    except:
-      pass
-      
+      pass    
+
    return make_response("auth failed", 401)
 
 

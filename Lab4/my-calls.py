@@ -29,25 +29,22 @@ print(response.text)
 print()
 
 
+### JDW ###
+
 def test_auth(loginData):
     # Test /login api
-    u, p = loginData["username"], loginData["password"]
     # A POST request to the API
     response = httpx.post(url + "login", data=loginData)
-    token = response.text.split('\n')[-1]
+    token = response.text
+
     # Print the response
     print(response.status_code)
     print(response.text)
     print()
 
     # Test /auth api
-
-    authData = {
-        "user": u,
-        "token": token
-    }
     # A POST request to the API
-    response = httpx.post(url + "auth", data=authData)
+    response = httpx.post(url + "auth", data={"token": token})
 
     # Print the response
     print(response.status_code)
@@ -62,6 +59,7 @@ loginDataArr = [
     {"username": "tim", "password": "timpw"},
     {"username": "sue", "password": "suepw"},
     {"username": "kim", "password": "kimpw"},
+    {"username": "zzz", "password": "zzzzz"},   # test invalid user
     {"username": "kim", "password": "kimpwXX"}  # test valid user with incorrect pw
 ]
 

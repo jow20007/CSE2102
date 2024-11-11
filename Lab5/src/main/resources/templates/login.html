@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Login</title>
+    <style>
+      body {
+        font-size: 18px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: monospace;
+        background-color: #181818;
+      }
+      .login {
+        display: flex;
+        flex-direction: column;
+        height: 70vh;
+        width: 360px;
+        justify-content: center;
+        align-items: center;
+      }
+      form {
+        display: flex;
+        flex-direction: column;
+        width: 360px;
+        padding: 32px;
+        align-items: center;
+      }
+      form > p {
+        align-self: flex-start;
+        margin: 16px 8px;
+        color: #a1daf6;
+      }
+      form > input {
+        font-size: 18px;
+        font-family: monospace;
+        width: 100%;
+        height: 48px;
+        background-color: #1f1f1f;
+        color: #f1f1f1;
+        border: none;
+        border: 1px solid #606060;
+        border-radius: 4px;
+        padding-left: 8px;
+        margin-bottom: 16px;
+      }
+      #submit {
+        width: fit-content;
+        height: fit-content;
+        padding: 16px 32px;
+        margin-top: 16px;
+        color: #a1daf6;
+      }
+      .progress {
+        align-self: flex-end;
+        height: 48px;
+      }
+    </style>
+  </head>
+  
+  <script th:if="${loginFailed == true}">
+    alert("Password must be 8-100 character in length and have at least one uppercase, lowercase, number, and special character (!, \", #, $, %, &, ', (, ), *, +, ,, -).")
+  </script>
+  
+  <body>
+    <div class="login">
+      <div class="progress"></div>
+      <form action="#" th:action="@{/}" th:object="${login}" method="post">
+        <p id="un">Username</p>
+        <input type="text" th:field="*{username}" name="username"/>
+        <p id="pw">Password</p>
+        <input type="text" th:field="*{password}" name="password"/>
+        <input type="submit" id="submit" value="Submit"/>
+      </form>
+    </div>
+  </body>
+</html>

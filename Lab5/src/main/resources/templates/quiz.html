@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Quiz</title>
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-family: monospace;
+        background-color: #181818;
+      }
+      .quiz {
+        display: flex;
+        flex-direction: column;
+        height: 70vh;
+        width: 360px;
+        justify-content: center;
+        align-items: center;
+      }
+      form {
+        display: grid;
+        grid-template-rows: 64px 140px 96px;
+        width: 360px;
+        padding: 32px;
+        align-items: center;
+      }
+      form > p {
+        font-size: 18px;
+        align-self: flex-start;
+        margin: 0 0 0 8px;
+        color: #f1f1f1;
+      }
+      form input {
+        font-size: 18px;
+        font-family: monospace;
+        width: 100%;
+        height: 48px;
+        background-color: #1f1f1f;
+        color: #f1f1f1;
+        border: none;
+        border: 1px solid #606060;
+        border-radius: 4px;
+        padding-left: 8px;
+        margin-bottom: 16px;
+      }
+      .btns input {
+        width: fit-content;
+        height: fit-content;
+        padding: 16px 32px;
+        margin-top: 16px;
+      }
+      .btns {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        justify-self: center;
+        width: 68%;
+      }
+      .hidden {
+        display: none;
+      }
+      .progress {
+        align-self: flex-end;
+        height: 48px;
+      }
+      #qNo {
+        color: #a1daf6;
+      }
+      #score {
+        color: #a1daf6;
+        font-size: 14px;
+      }
+    </style>
+  </head>
+  
+  <body>
+    <div class="quiz" th:object="${quiz}">
+      <div class="progress">
+        <p id="score">Score: <span th:text="*{correct}"></span>/<span th:text="*{attempted}"></span></p>
+      </div>
+      <form action="#" th:action="@{/quiz}" method="post">
+        <p id="qNo">Question <span th:text="*{attempted + 1}"></span></p>
+        <p th:text="*{question}"/>
+        <div class="btns">
+          <input type="submit" value="True" name="submit"/>
+          <input type="submit" value="False" name="submit"/>
+        </div>
+        <input th:field="*{question}" class="hidden">
+        <input th:field="*{qIdx}" class="hidden">
+        <input th:field="*{correct}" class="hidden">
+        <input th:field="*{attempted}" class="hidden">
+      </form>
+    </div>
+  </body>
+</html>
