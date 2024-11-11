@@ -34,4 +34,9 @@ cd CSE2102/Lab4
 python3 my-calls.py    ### must have httpx installed
 ```
 
-MIDTERM NOV 5
+To run Lab5:
+```
+git clone https://github.com/jow20007/CSE2102.git
+cd CSE2102/Lab5
+./mvnw test
+```
