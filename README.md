@@ -40,3 +40,10 @@ git clone https://github.com/jow20007/CSE2102.git
 cd CSE2102/Lab5
 ./mvnw test
 ```
+
+To run Lab6:
+```
+git clone https://github.com/jow20007/CSE2102.git
+cd CSE2102/Lab6 && npm install
+npm start 
+```
