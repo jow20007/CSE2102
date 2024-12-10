@@ -47,3 +47,10 @@ git clone https://github.com/jow20007/CSE2102.git
 cd CSE2102/Lab6 && npm install
 npm start 
 ```
+
+To run Final Project:
+```
+git clone https://github.com/jow20007/CSE2102.git
+cd CSE2102/FinalProject && npm install
+npm start 
+```
