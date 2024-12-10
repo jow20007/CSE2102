@@ -1,0 +1,40 @@
+body {
+  background-color: rgb(17, 23, 56);
+  color: white;
+  font-size: 18px;
+  font-family: 'Trebuchet MS', sans-serif;
+  text-align: center;
+  }        
+
+.Home .outlet {
+  display: grid;
+  justify-items: center;
+}
+
+
+.Home a {
+  font-size: 24px;
+  color: white;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+#bfi:hover {
+  cursor: pointer;
+}
+
+.outlet > div {
+  width: 40vw;
+}
+
+.bubble {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: all 0.2s ease-in-out;
+  transition-property: opacity transform;
+}
+
+.bubble.shown {
+  opacity: 1;
+  transform: translateY(0);
+}
